@@ -44,10 +44,6 @@ export abstract class BaseService<T extends Typegoose> {
         return this._model.findByIdAndRemove(this.toObjectId(id)).exec();
     }
 
-    async update(id: string, item: InstanceType<T>): Promise<InstanceType<T>> {
-        return this._model.findByIdAndUpdate(this.toObjectId(id), item, { new: true }).exec();
-    }
-
     async clearCollection(filter = {}): Promise<{ ok?: number, n?: number }> {
         return this._model.deleteMany(filter).exec();
     }

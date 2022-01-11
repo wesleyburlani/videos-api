@@ -14,14 +14,12 @@ import { VideoQuery } from './models/video.query.model';
 
 @Controller('videos')
 @ApiUseTags(Video.modelName)
-@ApiBearerAuth()
 export class VideosController {
     constructor(private readonly _videosService: VideosService,
                 private readonly _configService: ConfigurationService,
     ) {}
 
     @Get()
-    @UseGuards(AuthGuard('bearer'))
     @ApiOkResponse({ type: [VideoVm] })
     @ApiBadRequestResponse({})
     @ApiOperation(GetOperationId(Video.modelName, 'Get'))
@@ -39,7 +37,6 @@ export class VideosController {
     }
 
     @Get(':id')
-    @UseGuards(AuthGuard('bearer'))
     @ApiOkResponse({ type: VideoVm })
     @ApiBadRequestResponse({})
     @ApiOperation(GetOperationId(Video.modelName, 'Get'))
@@ -48,7 +45,6 @@ export class VideosController {
     }
     
     @Post()
-    @UseGuards(AuthGuard('bearer'))
     @ApiCreatedResponse({ type: VideoVm })
     @ApiBadRequestResponse({})
     @ApiOperation(GetOperationId(Video.modelName, 'Create'))
@@ -58,7 +54,6 @@ export class VideosController {
     }
 
     @Put(':id')
-    @UseGuards(AuthGuard('bearer'))
     @ApiCreatedResponse({ type: VideoVm })
     @ApiBadRequestResponse({})
     @ApiOperation(GetOperationId(Video.modelName, 'Update'))
@@ -68,7 +63,6 @@ export class VideosController {
     }
 
     @Delete(':id')
-    @UseGuards(AuthGuard('bearer'))
     @ApiCreatedResponse({ type: VideoVm })
     @ApiBadRequestResponse({})
     @ApiOperation(GetOperationId(Video.modelName, 'Delete'))
