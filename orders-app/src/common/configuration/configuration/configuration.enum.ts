@@ -1,5 +1,0 @@
-export enum Configuration {
-    MONGO_URI = 'MONGO_URI',
-    PAYMENT_ENDPOINT = 'PAYMENT_ENDPOINT',
-    PAYMENT_BEARER = 'PAYMENT_BEARER',
-}
