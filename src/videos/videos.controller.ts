@@ -1,15 +1,13 @@
-import { Body, Controller, Delete, Get, HttpException, HttpStatus, NotFoundException, Param, Post, Put, Query, Req, UseGuards } from '@nestjs/common';
-import { ApiUseTags, ApiBearerAuth, ApiOkResponse, ApiBadRequestResponse,
+import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
+import { ApiUseTags, ApiOkResponse, ApiBadRequestResponse,
     ApiOperation, 
     ApiCreatedResponse} from '@nestjs/swagger';
 import { Video } from './models/video.model';
 import { VideosService } from './videos.service';
-import { GetOperationId } from 'src/common/helpers/get-operation-id.helper';
-import { AuthGuard } from '@nestjs/passport';
-import { ConfigurationService } from 'src/common/configuration/configuration/configuration.service';
+import { GetOperationId } from '../common/helpers/get-operation-id.helper';
+import { ConfigurationService } from '../common/configuration/configuration/configuration.service';
 import { VideoVm } from './models/view-models/video-vm.model';
 import { VideoParams } from './models/view-models/video-params.model';
-import { PaginationQuery } from 'src/common/pagination/pagination.model';
 import { VideoQuery } from './models/video.query.model';
 
 @Controller('videos')
@@ -48,7 +46,7 @@ export class VideosController {
     @ApiCreatedResponse({ type: VideoVm })
     @ApiBadRequestResponse({})
     @ApiOperation(GetOperationId(Video.modelName, 'Create'))
-    async create(@Req() req, @Body() params: VideoParams): Promise<VideoVm> {
+    async create(@Body() params: VideoParams): Promise<VideoVm> {
         const video = await this._videosService.createVideo(params);
         return this._videosService.map<VideoVm>(video);
     }

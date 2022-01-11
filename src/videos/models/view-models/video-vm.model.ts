@@ -1,4 +1,4 @@
-import { BaseModelVm } from 'src/common/base/base.model.vm';
+import { BaseModelVm } from '../../../common/base/base.model.vm';
 import { ApiModelProperty } from '@nestjs/swagger';
 
 export class VideoVm extends BaseModelVm {

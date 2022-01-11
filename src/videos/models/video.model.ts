@@ -1,4 +1,4 @@
-import { BaseModel, schemaOptions } from 'src/common/base/base.model';
+import { BaseModel, schemaOptions } from '../../common/base/base.model';
 import { InstanceType, ModelType, prop } from 'typegoose';
 
 export class Video extends BaseModel<Video> {

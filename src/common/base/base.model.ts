@@ -1,7 +1,10 @@
-import { ApiModelProperty, ApiModelPropertyOptional } from '@nestjs/swagger';
+import { ApiModelPropertyOptional } from '@nestjs/swagger';
 import { SchemaOptions } from 'mongoose';
-import { Typegoose, prop, pre, ModelType } from 'typegoose';
+import { Typegoose, prop } from 'typegoose';
 
+/**
+ * Base Model to create a new Document Type on MongoDB
+ */
 export abstract class BaseModel<T> extends Typegoose {
     @prop()
     @ApiModelPropertyOptional({ type: String, format: 'date-time '})
@@ -14,7 +17,6 @@ export abstract class BaseModel<T> extends Typegoose {
     @prop()
     @ApiModelPropertyOptional()
     id: string;
-
 }
 
 export const schemaOptions: SchemaOptions = {

@@ -1,9 +1,9 @@
 import { Injectable, InternalServerErrorException, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { ModelType } from 'typegoose';
-import { BaseService } from 'src/common/base/base.service';
+import { BaseService } from '../common/base/base.service';
 import { Video, VideoModel } from './models/video.model';
-import { MapperService } from 'src/common/mapper/mapper/mapper.service';
+import { MapperService } from '../common/mapper/mapper/mapper.service';
 import { VideoParams } from './models/view-models/video-params.model';
 
 @Injectable()

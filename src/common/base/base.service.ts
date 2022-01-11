@@ -28,10 +28,6 @@ export abstract class BaseService<T extends Typegoose> {
         .exec();
     }
 
-    async findOne(filter = {}): Promise<InstanceType<T>> {
-        return this._model.findOne(filter).exec();
-    }
-
     async findById(id: string): Promise<InstanceType<T>> {
         return this._model.findById(this.toObjectId(id)).exec();
     }
@@ -42,10 +38,6 @@ export abstract class BaseService<T extends Typegoose> {
 
     async delete(id: string): Promise<InstanceType<T>> {
         return this._model.findByIdAndRemove(this.toObjectId(id)).exec();
-    }
-
-    async clearCollection(filter = {}): Promise<{ ok?: number, n?: number }> {
-        return this._model.deleteMany(filter).exec();
     }
 
     protected toObjectId(id: string): Types.ObjectId {

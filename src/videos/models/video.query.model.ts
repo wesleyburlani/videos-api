@@ -1,5 +1,5 @@
 import { ApiModelProperty } from '@nestjs/swagger';
-import { PaginationQuery } from 'src/common/pagination/pagination.model';
+import { PaginationQuery } from '../../common/pagination/pagination.model';
 
 export class VideoQuery extends PaginationQuery {
     @ApiModelProperty({

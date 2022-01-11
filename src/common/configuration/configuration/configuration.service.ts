@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { get } from 'config';
-import { Configuration } from './configuration.enum';
 
 @Injectable()
 export class ConfigurationService {
@@ -14,5 +13,4 @@ export class ConfigurationService {
     get isDevelopment(): boolean {
         return this.environmentHosting === 'development';
     }
-
 }
