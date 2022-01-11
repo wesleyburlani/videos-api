@@ -6,7 +6,7 @@ export class PaginationQuery {
     maximum: 10000,
     format: 'int32',
     default: 0,
-    required: false
+    required: false,
   })
   page: string;
 
