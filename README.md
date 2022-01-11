@@ -14,7 +14,7 @@ To run this project locally, first of all you need to clone this repository, the
 To run the project you need to run the following command: 
 
 ```sh
-docker-compose up
+docker-compose build && docker-compose up
 ```
 
 ## Swagger
